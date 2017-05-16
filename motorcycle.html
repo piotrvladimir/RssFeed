@@ -1,0 +1,55 @@
+    <script src="/scripts/blogslider/js/main.js"></script>
+    <script src="/scripts/blogslider/js/owl.carousel.js"></script>
+    <!-- includes stylesheet -->
+    <link href="/scripts/blogslider/css/owl.carousel.css" rel="stylesheet" />
+    <link href="/scripts/blogslider/css/owl.theme.css" rel="stylesheet" />
+    <link href="/scripts/blogslider/css/owl.transitions.css" rel="stylesheet" />
+    <link href="/scripts/blogslider/css/main.css" rel="stylesheet" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>
+    var transSpeed = 5000;  // transition speed (ms)
+    var postCount = 7;      // max feeds count to be displayed
+    var isRandom = false;   // enable or disable random order
+
+    $(document).ready(function() {
+      loadRssFeeds();
+    });
+
+    // load rss feeds
+    function loadRssFeeds() {
+
+      $.ajax({
+            type:"get",
+            dataType:"json",
+            jsonp: false,
+            async: true,
+            url:"https://blog.greatflorida.com/category/motorcycle-insurance/feed/?json=1",
+            success: function(result){
+              //console.log(result.posts[0].excerpt);
+              var i = 0;
+              var inHTML = '<div id="rss_wrapper">';
+              for(i=0; i<postCount; i++) {
+                inHTML += '<div class="rss-content-wrapper"><div class="rss-image"><a href="'+result.posts[i].attachments[0].images.full.url+'" target="_blank" class="rss-image"><img src="'+result.posts[i].attachments[0].images.full.url+'"/></a></div><div class="rss-content"><p class="rss-date">'+getFormatDate(result.posts[i].date)+'</p><h3 class="rss-title"><a href="'+result.posts[i].url+'" target="_blank">'+result.posts[i].title+'</a></h3><p class="rss-body">'+result.posts[i].excerpt+'</p></div></div>';
+              }
+              inHTML += '</div>';
+              $("#rss_container").html(inHTML).promise().done(function(){
+                $("#rss_wrapper").owlCarousel({
+                  autoPlay: transSpeed,
+                  singleItem: true,
+                  stopOnHover: true,
+                  transitionStyle : "fade",
+                  beforeInit : function(elem){
+                      if(isRandom) {
+                          random(elem);
+                      }
+                      displayFeeds(elem);
+                      }
+                  });
+              });
+            }
+        });
+    }
+    </script>
+  <div id="rss_container">
+    Now loading ...
+  </div>

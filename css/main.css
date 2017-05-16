@@ -1,0 +1,89 @@
+#rss_container {
+	width: 100%;
+    height: 192px;
+	top: 2px;
+    background: -webkit-linear-gradient(180deg, #eeeeee, #d4d4d4); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(180deg, #eeeeee, #d4d4d4); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(180deg, #eeeeee, #d4d4d4); /* For Firefox 3.6 to 15 */
+    background: linear-gradient(180deg, #eeeeee, #d4d4d4); /* Standard syntax */
+    border-radius: 25px;
+    -moz-border-radius: 25px;
+    -webkit-border-radius: 25px;
+    padding: 5px;
+	position: relative;
+    overflow:hidden;
+}
+
+#rss_wrapper {
+	background-color: #ffffff;
+    border-radius: 25px;
+    -moz-border-radius: 25px;
+    -webkit-border-radius: 25px;
+    width: 100%;
+    height: 100%;
+}
+
+.rss-content-wrapper {
+	width: 100%;
+	height: 100%;
+}
+
+.rss-image {
+    width: auto;
+    height: 100%;
+    float: left;
+    margin-right: 15px;
+}
+
+.rss-image > img {
+    width: auto;
+    height: 100%;
+    border-radius: 25px 0 0 25px;
+    -moz-border-radius: 25px 0 0 25px;
+    -webkit-border-radius: 25px 0 0 25px;
+}
+
+.rss-content {
+    padding: 12px 20px 32px 12px;
+	width: 60%;
+	height: 100%;
+	background-color: #ffffff;
+	position: absolute;
+	right: 0;
+	top: 0;
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	border-radius: 0 25px 25px 0;
+    -moz-border-radius: 0 25px 25px 0;
+    -webkit-border-radius: 0 25px 25px 0;
+}
+
+.rss-date {
+    color: #01723b;
+    font-size: 13px;
+	font-weight: 500;
+	margin-top: 0;
+	margin-bottom: 8px;
+}
+
+.rss-title {
+	margin: 0;
+	line-height: 1;
+    text-align: right;
+}
+
+.rss-title > a {
+    color: #f26522;
+    font-size: 20px;
+    text-decoration: none;
+	font-weight: 500;
+}
+
+.rss-body {
+    color: #363636;
+    font-size: 15px;
+	font-weight: normal;
+    text-align: right;
+    line-height: 16px;
+}
